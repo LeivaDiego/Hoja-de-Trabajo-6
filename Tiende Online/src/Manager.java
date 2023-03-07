@@ -66,7 +66,7 @@ public class Manager {
     public String newProduct(String category, String nameProduct){
         String status = "";
         Product product = null;
-        String key = createKey(category, nameProduct);
+        String key = createKey1(category, nameProduct);
         Boolean add = true;
 
         if(collection.containsKey(key)){
@@ -122,16 +122,16 @@ public class Manager {
         switch (option){
             case 3:
                 products = "Categoria | Producto | Cantidad \n";
-                products += showProducts(collection_keys, collection, option);
+                products += showProduct1(collection_keys, collection, option);
             case 4:
                 products = "Categoria | Producto | Cantidad \n";
-                products +=showProducts(collection_keys, collection, mapOption, option);
+                products += showProduct2(collection_keys, collection, mapOption, option);
             case 5:
                 products = "Categoria | Producto \n";
-                products += showProducts(inventory_keys, inventory, option);
+                products += showProduct1(inventory_keys, inventory, option);
             case 6:
                 products = "Categoria | Producto \n";
-                products +=showProducts(inventory_keys, inventory, mapOption, option);
+                products += showProduct2(inventory_keys, inventory, mapOption, option);
         }
         return products;
     }
@@ -143,7 +143,7 @@ public class Manager {
      * @param keys identificadores de productos
      * @return todos los productos
      */
-    private String showProducts(ArrayList<String> keys, Map<String, Product> map, int option){
+    private String showProduct1(ArrayList<String> keys, Map<String, Product> map, int option){
         String products = "";
         for(int i = 0; i < keys.size(); i++){
             Product product = map.get(keys.get(i));
@@ -161,7 +161,7 @@ public class Manager {
      * @param mapOption la implementacion de map usada
      * @return todos los productos
      */
-    private String showProducts(ArrayList<String> keys, Map<String, Product> map, int mapOption, int option){
+    private String showProduct2(ArrayList<String> keys, Map<String, Product> map, int mapOption, int option){
         String products = "";
         List<Entry<String, Product>> list = new ArrayList<>(map.entrySet());
         list.sort(Entry.comparingByKey());
@@ -183,7 +183,7 @@ public class Manager {
      */
     private void insertProduct(String category, String product_name, Map<String, Product> map, ArrayList<String> keys){
         Product product = new Product(product_name, category);
-        String key = createKey(category, product_name, keys);
+        String key = createKey2(category, product_name, keys);
         map.put(key, product);
     }
 
@@ -195,7 +195,7 @@ public class Manager {
      * @param product   el producto
      * @return una llave que el map utiiza
      */
-    private String createKey(String category, String product){
+    private String createKey1(String category, String product){
         String key = category.trim()  + "|" + product.trim();
         return key;
     }
@@ -208,7 +208,7 @@ public class Manager {
      * @param product   el producto
      * @return una llave que el map utiliza
      */
-    private String createKey(String category, String product, ArrayList<String> keys){
+    private String createKey2(String category, String product, ArrayList<String> keys){
         String key = category.trim() + "|" + product.trim();
         keys.add(key);
         return key;

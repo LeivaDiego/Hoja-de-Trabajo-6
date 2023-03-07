@@ -9,25 +9,36 @@ public class Main {
             while(option != 7){
                 String result = "";
                 option = view.menu();
-
-                if (option == 1){
-                    String[] product = view.newProduct();
-                    result = onlineStore.newProduct(product[1], product[0]);
-                    view.output(result);
-                }
-                else if (option == 2){
-                    String nameProduct = view.searchProduct();
-                    result = onlineStore.searchCategory(nameProduct);
-                    view.output(result);
-                }
-                else if (option == 7)
-                    view.exit();
-
-                else {
-                    result = onlineStore.showProducts(option, mapOption);
-                    view.output(result);
+                switch (option){
+                    case 1:
+                        String[] product = view.newProduct();
+                        result = onlineStore.newProduct(product[1], product[0]);
+                        view.output(result);
+                        break;
+                    case 2:
+                        String nameProduct = view.searchProduct();
+                        result = onlineStore.searchCategory(nameProduct);
+                        view.output(result);
+                        break;
+                    case 3:
+                        result = onlineStore.showProducts(option,mapOption);
+                        view.output(result);
+                        break;
+                    case 4:
+                        result = onlineStore.showProducts(option,mapOption);
+                        view.output(result);
+                        break;
+                    case 5:
+                        result = onlineStore.showProducts(option,mapOption);
+                        view.output(result);
+                        break;
+                    case 6:
+                        result = onlineStore.showProducts(option,mapOption);
+                        view.output(result);
+                        break;
                 }
             }
+            view.exit();
         } catch (Exception e) {
             String s = "ERROR: " + e.getMessage();
             view.error(s);

@@ -115,9 +115,9 @@ public class View {
      */
     public String[] newProduct(){
         String[] product = new String[2];
-        System.out.println("Insert the name of the product");
+        System.out.println("Ingrese el nombre del producto");
         String name = input.nextLine();
-        System.out.println("Insert the category of the product");
+        System.out.println("Ingrese la categoria del producto");
         String category = input.nextLine();
         product[0] = name; product[1] = category;
         System.out.println();
