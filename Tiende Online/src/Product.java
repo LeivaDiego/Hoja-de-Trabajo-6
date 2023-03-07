@@ -6,7 +6,7 @@ public class Product {
     // Propiedades del modelo Producto
     private String name;
     private String category;
-    private int amount;
+    private int qty;
 
 
     /**
@@ -17,7 +17,7 @@ public class Product {
     public Product(String name, String category){
         this.name = name;
         this.category = category;
-        this.amount = 1;
+        this.qty = 1;
     }
 
 
@@ -25,7 +25,7 @@ public class Product {
      * Incrementa la cantidad de producto especifico
      */
     public void addAmount(){
-        this.amount++;
+        this.qty++;
     }
 
 
@@ -37,7 +37,7 @@ public class Product {
     public String toString(int option){
         String string = "";
         if (option == 3 || option == 4)
-            string = this.category + " | " + this.name + " | " + this.amount;
+            string = this.category + " | " + this.name + " | " + this.qty;
         else if (option == 5 || option == 6)
             string = this.category + " | " + this.name;
         return string;
