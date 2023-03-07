@@ -40,7 +40,7 @@ public class Manager {
      */
     private void read() throws FileNotFoundException{
         try{
-            File file = new File("ListadoProducto(2).txt");
+            File file = new File("C:/Users/diego/Documents/UVG/5to Semestre/Algoritmos y Estructuras de Datos/Hoja-de-Trabajo-6/Tiende Online/src/ListadoProducto.txt");
             Scanner input = new Scanner(file);
             while(input.hasNextLine()){
                 String[] elements = input.nextLine().split("[|]");
